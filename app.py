@@ -28,7 +28,7 @@ def extract_resume_content(pdf_path):
 def setup_llm(resume_content):
     """Setup LLM and chain"""
     if "GOOGLE_API_KEY" not in os.environ:
-        os.environ["GOOGLE_API_KEY"] = "AIzaSyCb1hPRJFjiTwV6a_IUwhvCCE8AbytWNkw"
+        os.environ["GOOGLE_API_KEY"] = st.secrets["google_api_key"]
 
     llm = ChatGoogleGenerativeAI(
         model="gemini-1.5-flash",
