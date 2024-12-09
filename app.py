@@ -77,7 +77,7 @@ def main():
     initialize_session_state()
 
     # Extract resume content
-    resume_path = "data.pdf"  # Ensure the resume is in the same directory
+    resume_path = "data.pdf"
     resume_content = extract_resume_content(resume_path)
 
     # Setup LLM if not already setup
