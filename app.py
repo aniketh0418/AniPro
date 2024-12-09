@@ -27,8 +27,7 @@ def extract_resume_content(pdf_path):
 
 def setup_llm(resume_content):
     """Setup LLM and chain"""
-    if "GOOGLE_API_KEY" not in os.environ:
-        os.environ["GOOGLE_API_KEY"] = st.secrets["google_api_key"]
+    google_api_key=st.secrets["google_api_key"]
 
     llm = ChatGoogleGenerativeAI(
         model="gemini-1.5-flash",
@@ -59,16 +58,26 @@ def setup_llm(resume_content):
 
 def main():
     st.set_page_config(
-        page_title="AniPro",
+        page_title="AniPro2.0",
         page_icon="logo1black.png",
-        layout="centered"
+        layout="centered",
+        initial_sidebar_state="collapsed"
     )
+
+    hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            header {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
 
     # Initialize session state
     initialize_session_state()
 
     # Extract resume content
-    resume_path = "resume.pdf"  # Ensure the resume is in the same directory
+    resume_path = "data.pdf"  # Ensure the resume is in the same directory
     resume_content = extract_resume_content(resume_path)
 
     # Setup LLM if not already setup
@@ -110,21 +119,26 @@ def main():
         height=500,
     )
     
-    # Sidebar
-    # with st.sidebar:
-    #     st.markdown("""
-    #     ## About
-    #     This chatbot is here to assist you with any questions about me, my skills, experience, or projects.
+    with st.sidebar:
+        st.markdown("""
+        ## AniPro2.0 🤖
+                    
+        This chatbot is here to assist you with any questions about Aniketh, Aniketh's skills, experience, or projects. Its responses are limited to Aniketh's personal profile, for more visuals and consize responses please visit to the chatbot situated at the bottom right corner of the portfolio page.
 
-    #     ### Tips:
-    #     - Ask about my career, certifications, or notable achievements.
-    #     - Inquire about specific projects or technologies I've worked with.
-    #     """)
-    #     if st.button("Clear Conversation", type="secondary"):
-    #         st.session_state.messages = []
-    #         st.session_state.memory = ConversationBufferMemory()
-    #         st.session_state.chain = setup_llm(resume_content)
-    #         st.rerun()
+        ### Tips ✨:
+                    
+        - Ask about Aniketh's career, certifications, or notable achievements.
+        - Inquire about specific projects or technologies Aniketh has worked with.
+        - Ask it if Aniketh is suitable for a specific role or what are those roles he is suitable for.
+        - AniPro2.0 can not answer any personal questions about Aniketh, please refrain from asking any!
+                    
+        [Get Back to Portfilio 🌐](https://anikethvardhan.netlify.app/)
+        """)
+        if st.button("Clear Conversation", type="secondary"):
+            st.session_state.messages = []
+            st.session_state.memory = ConversationBufferMemory()
+            st.session_state.chain = setup_llm(resume_content)
+            st.rerun()
 
     # Display chat messages
     chat_container = st.container()
@@ -134,7 +148,7 @@ def main():
                 st.write(message["content"])
 
     # Chat input
-    if prompt := st.chat_input("Ask me anything about my profile!"):
+    if prompt := st.chat_input("Ask me anything about Aniketh's professional profile!"):
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
 
