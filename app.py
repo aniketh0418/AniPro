@@ -2,19 +2,34 @@ import streamlit as st
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
+
+from langchain.schema import messages_from_dict, messages_to_dict
+
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import LLMChain
 import PyPDF2
-
 
 def initialize_session_state():
     """Initialize session state variables"""
     if 'messages' not in st.session_state:
         st.session_state.messages = []
     if 'memory' not in st.session_state:
-        st.session_state.memory = ConversationBufferMemory()
+        st.session_state.memory = ConversationBufferMemory(
+            return_messages=True, 
+            memory_key="history"
+        )
     if 'chain' not in st.session_state:
         st.session_state.chain = None
+
+
+# def initialize_session_state():
+#     """Initialize session state variables"""
+#     if 'messages' not in st.session_state:
+#         st.session_state.messages = []
+#     if 'memory' not in st.session_state:
+#         st.session_state.memory = ConversationBufferMemory()
+#     if 'chain' not in st.session_state:
+#         st.session_state.chain = None
 
 
 def extract_resume_content(pdf_path):
