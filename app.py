@@ -81,7 +81,7 @@ def main():
 
     hide_st_style = """
             <style>
-            MainMenu {visibility: hidden;}
+            #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             </style>
             """
@@ -365,6 +365,7 @@ if __name__ == "__main__":
 
 # if __name__ == "__main__":
 #     main()
+
 
 
 
