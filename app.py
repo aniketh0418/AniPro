@@ -144,7 +144,7 @@ def main():
         - Ask if Aniketh is suitable for a specific role or what roles he is suitable for.
         - AniPro2.0 can not answer any personal questions about Aniketh, please refrain from asking any!
                     
-        [Get Back to Portfolio 🌐](https://anikethvardhan.netlify.app/)
+        [Go to Portfolio 🌐](https://anikethvardhan.netlify.app/)
         """)
         if st.button("Clear Conversation", type="secondary"):
             st.session_state.messages = []
@@ -365,6 +365,7 @@ if __name__ == "__main__":
 
 # if __name__ == "__main__":
 #     main()
+
 
 
 
