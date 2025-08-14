@@ -76,7 +76,7 @@ def main():
         page_title="AniPro2.0",
         page_icon="logo1black.png",
         layout="centered",
-        initial_sidebar_state="collapsed"
+        initial_sidebar_state="expanded"
     )
 
     hide_st_style = """
@@ -366,4 +366,5 @@ if __name__ == "__main__":
 
 # if __name__ == "__main__":
 #     main()
+
 
