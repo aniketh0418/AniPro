@@ -34,7 +34,7 @@ git clone https://github.com/<your-username>/AniPro-2.0.git
 cd AniPro-2.0
 ```
 
-###  Create and activate a virtual environment (optional but recommended)
+### 2️⃣ Create and activate a virtual environment (optional but recommended)
 
 ```bash
 python -m venv venv
@@ -42,21 +42,21 @@ source venv/bin/activate  # Mac/Linux
 venv\Scripts\activate     # Windows
 ```
 
-###  Install dependencies
+### 3️⃣ Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-###  Configure API Key - Create a {.streamlit/secrets.toml} file in the project root
+### 4️⃣ Configure API Key - Create a {.streamlit/secrets.toml} file in the project root
 
 ```bash
 google_api_key = "YOUR_GOOGLE_API_KEY"
 ```
 
-###  Replace data.pdf with your custom resume (rename your resume into data.pdf) in the root.
+### 5️⃣ Replace data.pdf with your custom resume (rename your resume into data.pdf) in the root.
 
-###  Run the application
+### 6️⃣ Run the application
 
 ```bash
 streamlit run app.py
