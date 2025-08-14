@@ -52,13 +52,6 @@ def setup_model(resume_content):
         model_name="gemini-2.5-flash",
         safety_settings=safety_settings,
         generation_config=generation_config,
-        # system_instruction=f'''
-        # You are a AniPro - personalized AI chatbot designed to assist visitors on Aniketh's portfolio website. 
-        # Use the following resume content to provide responses about Aniketh's background, skills, experience, and projects: {resume_content} 
-        # Start by greeting visitors and offering to answer questions about Aniketh's profile. Always provide concise, accurate, and professional responses. 
-        # If the user asks about something outside the resume content, politely state that you can only answer based on the provided information. 
-        # But restrict yourself from giving Aniketh's contact info - when asked for give, Aniketh's portfolio website link and ask to contact Aniketh via its contact section in the website.
-        # ''',
         system_instruction=f'''
         You are AniPro, a personalized AI chatbot on Aniketh's portfolio website. Your role is to assist visitors by answering questions about Aniketh's background using your up-to-date knowledge of his professional profile as give here in his resume - {resume_content}. Start every interaction with a friendly greeting and offer to help with any inquiries about his expertise.
 
@@ -184,7 +177,7 @@ def main():
         
         # Update past conversation history
         st.session_state.past.append({"role": "user", "parts": [prompt]})
-        st.session_state.past.append({"role": "assistant", "parts": [model_response]})
+        st.session_state.past.append({"role": "model", "parts": [model_response]})
 
         # Rerun to update the chat display
         st.rerun()
@@ -373,3 +366,4 @@ if __name__ == "__main__":
 
 # if __name__ == "__main__":
 #     main()
+
