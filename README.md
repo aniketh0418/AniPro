@@ -1,4 +1,4 @@
-# AniPro 2.0 – Personalized AI Chatbot for your (Aniketh's) Portfolio
+# AniPro – Personalized AI Chatbot for your (Aniketh's) Portfolio
 
 AniPro 2.0 is a **Streamlit-powered AI chatbot** that uses **Google's Gemini API** to provide professional, concise, and engaging answers about your professional profile. It reads directly from a PDF version of your resume and is designed to integrate seamlessly into your portfolio website for an interactive visitor experience.
 
